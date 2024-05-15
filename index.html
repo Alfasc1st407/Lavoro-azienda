@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - IlBinomio</title>
+    <style>
+        /* mobile */
+@media screen and (max-width: 600px) {
+    #pc {
+      display: none;
+    }
+  }
+@media screen and (min-width: 600px) {
+    #mobile {
+      display: none;
+    }
+  }
+
+/* Animazioni */
+
+@keyframes menuanimato {
+    0%{
+        rotate: 0deg;
+    }
+    100%{
+        rotate: 180deg;
+    }
+}
+@keyframes menuinverso {
+    0%{
+        rotate: 180deg;
+    }
+    100%{
+        rotate: 0deg;
+    }
+}
+@keyframes appareMenu {
+    0%{
+        opacity: 0;
+        top: 0%;
+    }
+    100%{
+        opacity: 1;
+        top: 87%;
+    }
+}
+@keyframes appari {
+    0%{
+        opacity: 0;
+        top: 65%;
+    }
+    100%{
+        opacity: 1;
+        top: 55%;
+    }
+}
+
+/* Barra superiore e menù a tendina */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+header {
+    border: solid white 1px;
+    background-color: white;
+    height: 18%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    text-align: left;
+    z-index: 2;
+    padding: 10px;
+}
+.menu {
+    display: none;
+    left: 2.5%;
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    padding: 10px;
+    z-index: 2;
+}
+.menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #f9f9f9;
+}
+.menu a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    text-align: center;
+    color: #333;
+}
+.menu li:hover {
+    background-color: rgb(199, 197, 197);
+}
+.logo:hover + .menu,
+.menu:hover {
+    display: block;
+}
+.logo {
+    z-index: 2;
+    cursor: pointer;
+    height: 125%;
+    width: 125%;
+}
+.menu_tendina{
+    width: 8%;
+}
+.menu_tendina:hover .logo {
+    animation: menuanimato 0.3s linear forwards;
+}
+.menu_tendina:not(:hover) .logo {
+    animation: menuinverso 0.3s linear forwards;
+}
+.menu_tendina:hover .menu {
+    animation: appareMenu 0.3s linear forwards;
+}
+#head {
+    position: fixed;
+    top: 11%;
+    left: 53%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+#head .binomio {
+    max-width: 75%;
+    max-height: auto;
+}
+/* Introduzione */
+#introduzione .sfondo {
+    background-image: url(/img/Gif_introduzione.gif);
+    background-size: cover;
+    background-color: rgb(108, 97, 97);
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-top: 150px;
+}
+#introduzione h1 {
+    position: absolute;
+    font-size: 36px;
+    color: black; 
+    margin-top: 18%; 
+    left: 11%;
+}
+
+#introduzione h2 {
+    position: absolute;
+    font-size: 24px; 
+    color: black; 
+    margin-top: 23%; 
+    margin-left: 0%;
+}
+
+/* Informazioni */
+#info .container{
+    display: flex;
+    flex-direction: row;
+}
+#info a{
+    text-decoration: none;
+    color: #333;
+}
+#info .who{
+    border: solid black 1px;
+    background-color: aliceblue;
+    width: 33%;
+    text-align: center;
+}
+#info .who_img{
+    position: absolute;
+    display: none;
+    top: 55%;
+    left: 15%;
+}
+#info .who:hover .who_img{
+    display: initial;
+    animation: appari 0.3s linear forwards;;
+}
+#info .who:hover{
+    background-color: rgb(247, 225, 196)
+}
+#info .where{
+    border: solid black 1px;
+    background-color: aliceblue;
+    width: 33%;
+    text-align: center;
+}
+#map {
+    position: absolute;
+    display: none;
+    height: 34%;
+    width: 30%;
+    top: 50%;
+    left: 60%;
+}
+#info .where:hover #map{
+    display: initial;
+    animation: appari 0.3s linear forwards;;
+}
+#info .where:hover{
+    background-color: rgb(247, 225, 196)
+}
+#info .what{
+    border: solid black 1px;
+    background-color: aliceblue;
+    width: 33%;
+    text-align: center;
+}
+#info .what_img{
+    position: absolute;
+    display: none;
+    width: 20%;
+    height: auto;
+    top: 55%;
+    left: 40%;
+}
+#info .what:hover .what_img{
+    display: initial;
+    animation: appari 0.3s linear forwards;
+}
+#info .what:hover{
+    background-color: rgb(247, 225, 196)
+}
+
+/* Prodotti */
+.container {
+    display: flex;
+    flex-direction: row;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+.product {
+    float: left;
+    width: 30%;
+    padding: 20px;
+    margin: 1%;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+.product img {
+    width: 80%;
+    max-height: 200px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+/* Contatti */
+#contact{
+    background-image: url(/img/gif_finale.gif);
+    background-size: cover;
+    padding-top: 70px;
+    padding-bottom: 70px;
+    background-color: rgb(0, 0, 0);
+    text-align: center;
+}
+#contact h1{
+    color: red;
+}
+#contact h4{
+    color: #fff;
+}
+#contact a{
+    color: #fff;
+    text-decoration: none;
+}
+#contact a:hover{
+    font-size: 101%
+}
+#contact .mail{
+    color: red;
+}
+span.contatti{
+    color: #fff;
+    text-decoration: none;
+}
+
+/* whatsapp */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
+    color: #fff;
+    border-radius: 50px;
+    text-align: center;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.whatsapp-float img {
+    width: 100%;
+    height: auto;
+}
+
+/* Mobile */
+@keyframes menuanimato_mobile {
+    0%{
+        rotate: 0deg;
+    }
+    100%{
+        rotate: 180deg;
+    }
+}
+@keyframes menuinverso_mobile {
+    0%{
+        rotate: 180deg;
+    }
+    100%{
+        rotate: 0deg;
+    }
+}
+        @keyframes appari2 {
+    0%{
+        opacity: 0;
+        top: 0px;
+    }
+    100%{
+        opacity: 1;
+        top: 50px;
+    }
+}
+
+    .navbar_mobile {
+        background-color: white;
+        color: black;
+        position: fixed;
+        width: 100%;
+        height: 10%;
+        z-index: 1000;
+    }
+
+    .navbar_mobile .menu_tendina_mobile {
+        position: absolute;
+        padding: 10px;
+    }
+
+    .navbar_mobile .menu_tendina_mobile ul {
+        list-style: none;
+        position: absolute;
+        text-align: center;
+        left: 25px;
+        padding: 0;
+        margin: 0;
+        background-color: #f9f9f9;
+    }
+
+    .navbar_mobile .menu_tendina_mobile ul li {
+        display: row;
+        margin-right: 20px;
+        padding: 10px;
+    }
+    .menu_mobile{
+        display: none;
+    }
+
+    .navbar_mobile .menu_tendina_mobile ul li a {
+        color: black;
+        text-decoration: none;
+    }
+
+    .navbar_mobile .menu_tendina_mobile ul li a:hover {
+        text-decoration: underline;
+    }
+
+    .logo_mobile:hover + .menu_mobile,
+    .menu_mobile:hover {
+        display: block;
+    }
+    .menu_tendina_mobile:hover .logo_mobile {
+        animation: menuanimato_mobile 0.3s linear forwards;
+    }
+    .menu_tendina_mobile:not(:hover) .logo_mobile {
+        animation: menuinverso_mobile 0.3s linear forwards;
+    }
+    .menu_tendina_mobile:hover .menu_mobile{
+        animation: appari2 0.3s linear forwards;
+    }
+
+    #head_mobile {
+        position: relative;
+        top: 20px;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .content {
+        padding-top: 70px;
+    }
+
+    .logo_mobile {
+        width: 100%;
+        max-width: 110px;
+        height: 100%;
+        cursor: pointer;
+    }
+
+    .binomio {
+        max-width: 250px;
+        height: auto;
+    }
+
+    .intro {
+        background-image: url(Lavoro-azienda/img/Gif_introduzione.gif);
+        background-size: cover;
+        padding: 20px;
+        text-align: left;
+        font-size: 14px;
+    }
+
+    .intro .container_mobile {
+        z-index: 1;
+        max-width: 100%;
+    }
+
+    .container_mobile {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    }
+    .product {
+        float: left;
+        width: 30%;
+        padding: 20px;
+        margin: 1%;
+        background-color: #f9f9f9;
+        text-align: center;
+    }
+    .product img {
+        width: 80%;
+        max-height: 200px;
+        object-fit: cover;
+        margin-bottom: 10px;
+    }
+
+    #contact{
+    background-image: url(Lavoro-azienda/img/gif_finale.gif);
+    background-size: cover;
+    padding-top: 70px;
+    padding-bottom: 70px;
+    background-color: rgb(0, 0, 0);
+    text-align: center;
+}
+#contact h1{
+    color: red;
+}
+#contact h4{
+    color: #fff;
+}
+#contact a{
+    color: #fff;
+    text-decoration: none;
+}
+#contact a:hover{
+    font-size: 101%
+}
+#contact .mail{
+    color: red;
+}
+span.contatti{
+    color: #fff;
+    text-decoration: none;
+}
+    </style>
+</head>
+<body>
+    <div id="pc">
+    <!-- Menu a tendina e barra superiore -->
+    <header>
+        <div class="menu_tendina">
+            <img class="logo" src="/Lavoro-azienda/img/anello_menu.png" alt="Immagine non caricata">
+            <div class="menu" id="menu">
+                <ul>
+                    <li><a href="#introduzione">Home</a></li>
+                    <li><a href="#product">Servizi</a></li>
+                    <li><a href="#contact">Contatti</a></li>
+                    <li><a href="/Lavoro-azienda/orari.html">orari</a></li>
+                </ul>
+            </div>
+        </div>
+    <div id="head">
+        <img src="/Lavoro-azienda/img/Logo_lungo.png" alt="Immagine non caricata" class="binomio">
+    </div>
+</header>
+
+<!-- Parte introduttiva -->
+    <div id="introduzione">
+        <div class="container">
+        <h1><b>Il Binomio</b></h1>
+        <h2>
+            Come una danza tra l'anima e la materia, 
+            <br>
+            i nostri gioielli incarnano i sogni in forme tangibili.
+            <br>
+            Con passione, trasformiamo l'effimero in eterno,
+            <br>
+            dando vita alla magia dei metalli e delle gemme.
+        </h2>
+        </div>
+        <img src="/Lavoro-azienda/img/Parte_iniziale.png" alt="Immagine non caricata" class="sfondo">
+    </div>
+
+<!-- informazioni -->
+    <div id="info">
+        <div class="container">
+            <div class="who">
+                <img class="who_img" src="/Lavoro-azienda/img/Who.jpg" alt="immagine non caricata">
+                <h1><a href="/Lavoro-azienda/whoweare.html">Chi siamo</a></h1>
+            </div>
+            <div class="what">
+                <img class="what_img" src="/Lavoro-azienda/img/what.jpg" alt="immagine non caricata">
+                <h1><a href="#">Cosa facciamo</a></h1>
+            </div>
+            <div class="where">
+                <div id="map"></div>
+                <h1><a href="https://www.google.com/maps/place/Il+Binomio/@43.8377391,11.1909032,612m/data=!3m1!1e3!4m6!3m5!1s0x132a57c508a205ef:0x673be697ad79e373!8m2!3d43.8377094!4d11.1935886!16s%2Fg%2F1v9d4pk2?entry=ttu" target="_blank">Dove ci troviamo</a></h1>
+            </div>
+        </div>
+    </div>
+
+<!-- prodotti -->
+    <div class="container">
+        <div class="product" id="product">
+            <img src="/Lavoro-azienda/img/bracciale.jpg" alt="immagine non caricata">
+            <h2>Bracciale in Argento con iserti in Bronzo e Svarowski</h2>
+            <p><b>Bracciale realizzato in Argento martellato,con decorazioni in Bronzo
+
+                Gli elementi in Bronzo sono decorati con Svarowski.</b>
+                <br>
+                <br>
+                Materiali : Argento925/e Bronzo</p>
+            <p><strong>Prezzo:</strong> €130</p>
+        </div>
+        <div class="product">
+            <img src="/Lavoro-azienda/img/orecchini.jpg" alt="immagine non caricata">
+            <h2>Orecchini in Argento e Bronzo con Swarovski</h2>
+            <p><b>Orecchini in Argento e Bronzo con Swarovski bianco o champagne .</b>
+                <br><br>
+                Materiali : Argento925/e Bronzo</p>
+            <p><strong>Prezzo:</strong> €70</p>
+        </div>
+        <div class="product">
+            <img src="/Lavoro-azienda/img/anello1.png" alt="immagine non caricata">
+            <h2>Anello Argento e Bronzo con Quarzo rosa o verde</h2>
+            <p><b>Anello in Argento con decorazioni in bronzo sulla parte superiore.Le decorazioni sono composte da alcune maglie modellate, una delle quali è il castone per un quarzo rosa cabochon con fondo perla.</b>
+                <br><br>
+                Materiali : Argento925/e Bronzo</p>
+            <p><strong>Prezzo:</strong> €140</p>
+        </div>
+    </div>
+        <div class="container">
+        <div class="product">
+            <img src="/Lavoro-azienda/img/anello2.jpg" alt="immagine non caricata">
+            <h2>Anello Argento e Bronzo con Swarovski Champagne</h2>
+            <p><b>Anello in Argento e Bronzo con Swarovski Champagne</b>
+                <br><br>
+                Materiali : Argento e Bronzo
+            </p>
+            <p><strong>Prezzo:</strong> €140</p>
+        </div>
+    </div>
+    <section id="contact">
+        <h1>Altri contatti...</h1>
+        <h4>puoi contattarci anche:</h4>
+        <p><span class="mail">whatsapp:</span><a href="#" target="_blank"> +39 - 0554217662</a></p>
+        <p><span class="contatti"><span class="mail">per maggiore assistenza:</span> <span id="phone number" class="phone">+39 - 0554217662</span></span></span></p>
+        <div id="copymessage"></div>
+    </section>
+    <a href="https://wa.me/3737701031" class="whatsapp-float" target="_blank">
+        <img src="/Lavoro-azienda/img/WhatsApp_icon.png.webp" alt="WhatsApp">
+    </a>
+    <script>
+        function initMap() {
+            // Posizione della mappa
+            var myLatLng = {lat: 43.837768674949665, lng: 11.193617985115017};
+
+            // Opzioni della mappa
+            var mapOptions = {
+                zoom: 18,
+                center: myLatLng,
+                mapTypeId: 'satellite',
+                labels: true
+            };
+
+            // Creazione della mappa
+            var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+            // Creazione del marker
+            var marker = new google.maps.Marker({
+                position: myLatLng,
+                map: map,
+                title: 'Hello World!'
+            });
+        }
+        window.addEventListener('scroll', function() {
+    var whatsappFloat = document.querySelector('.whatsapp-float');
+    if (window.scrollY > 100) {
+        whatsappFloat.style.display = 'block';
+    } else {
+        whatsappFloat.style.display = 'none';
+    }
+});
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1o2ypW4FCooJx18oZCnNPBrTL6BdbsCI&callback=initMap">
+    </script>
+    </div>
+
+    <!-- Mobile -->
+    <div id="mobile">
+        <div class="navbar_mobile">
+            <div class="menu_tendina_mobile">
+                <img class="logo_mobile" src="/Lavoro-azienda/img/anello_menu.png" alt="Immagine non caricata">
+                <div class="menu_mobile" id="menu_mobile">
+                    <ul>
+                        <li><a href="#intro_mobile">Home</a></li>
+                        <li><a href="#prodotti_mobile">Servizi</a></li>
+                        <li><a href="#contatti_mobile">Contatti</a></li>
+                        <li><a href="orari.html" target="_blank"> Orari</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div id="head_mobile">
+                <img src="/Lavoro-azienda/img/Logo_lungo.png" alt="Immagine non caricata" class="binomio">
+            </div>
+        </div>
+        <div class="content">
+            <div id="intro_mobile" class="intro">
+                <div id="introduzione_mobile">
+                    <div class="container_mobile">
+                        <h1><b>Il Binomio</b></h1>
+                        <h2>
+                            Come una danza tra l'anima e la materia, 
+                            <br>
+                            i nostri gioielli incarnano i sogni in forme tangibili.
+                            <br>
+                            Con passione, trasformiamo l'effimero in eterno,
+                            <br>
+                            dando vita alla magia dei metalli e delle gemme.
+                        </h2>
+            </div>
+        </div>
+    </div>
+</div>
+        <div id="prodotti_mobile">
+            <div class="container_mobile">
+                <div class="product_mobile" id="product_mobile">
+                    <img src="/Lavoro-azienda/img/bracciale.jpg" alt="immagine non caricata">
+                    <h2>Bracciale in Argento con iserti in Bronzo e Svarowski</h2>
+                    <p><b>Bracciale realizzato in Argento martellato,con decorazioni in Bronzo
+        
+                        Gli elementi in Bronzo sono decorati con Svarowski.</b>
+                        <br>
+                        <br>
+                        Materiali : Argento925/e Bronzo</p>
+                    <p><strong>Prezzo:</strong> €130</p>
+                </div>
+                <div class="product_mobile">
+                    <img src="/Lavoro-azienda/img/orecchini.jpg" alt="immagine non caricata">
+                    <h2>Orecchini in Argento e Bronzo con Swarovski</h2>
+                    <p><b>Orecchini in Argento e Bronzo con Swarovski bianco o champagne .</b>
+                        <br><br>
+                        Materiali : Argento925/e Bronzo</p>
+                    <p><strong>Prezzo:</strong> €70</p>
+                </div>
+                <div class="product_mobile">
+                    <img src="/Lavoro-azienda/img/anello1.png" alt="immagine non caricata">
+                    <h2>Anello Argento e Bronzo con Quarzo rosa o verde</h2>
+                    <p><b>Anello in Argento con decorazioni in bronzo sulla parte superiore.Le decorazioni sono composte da alcune maglie modellate, una delle quali è il castone per un quarzo rosa cabochon con fondo perla.</b>
+                        <br><br>
+                        Materiali : Argento925/e Bronzo</p>
+                    <p><strong>Prezzo:</strong> €140</p>
+                </div>
+            </div>
+                <div class="container_mobile">
+                <div class="product_mobile">
+                    <img src="/Lavoro-azienda/img/anello2.jpg" alt="immagine non caricata">
+                    <h2>Anello Argento e Bronzo con Swarovski Champagne</h2>
+                    <p><b>Anello in Argento e Bronzo con Swarovski Champagne</b>
+                        <br><br>
+                        Materiali : Argento e Bronzo
+                    </p>
+                    <p><strong>Prezzo:</strong> €140</p>
+                </div>
+            </div>
+        </div>
+        <div id="contatti_mobile">
+            <section id="contact">
+                <h1>Altri contatti...</h1>
+                <h4>puoi contattarci anche:</h4>
+                <p><span class="mail">whatsapp:</span><a href="#" target="_blank"> +39 - 0554217662</a></p>
+                <p><span class="contatti"><span class="mail">per maggiore assistenza:</span> <span id="phone number" class="phone">+39 - 0554217662</span></span></span></p>
+                <div id="copymessage"></div>
+            </section>
+        </div>
+    </div>
+    
+</body>
+</html>
